@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html class="wide wow-animation smoothscroll scrollTo" lang="en">
+  <head>
+    <!-- Site Title-->
+    <title>Contacts</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="keywords" content="Intense web design multipurpose template">
+    <meta name="date" content="Apr 26">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Dancing+Script:700%7CLato:300,300italic,400,700,900">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/angular.min.js"></script>
+  </head>
+  <body ng-app="myApp"  ng-controller="contactpageCtrl">
+      <div class="container">
+          <h2>Enter Form</h2>
+          <form>
+            <div class="form-group">
+              <label for="Firstname">Firstname:</label>
+              <input class="form-control"  type="text" name="Firstname" ng-model="postdata.Firstname">
+            </div>
+            <div class="form-group">
+              <label for="Lastname">Lastname:</label>
+              <input class="form-control" type="text" name="Lastname" ng-model="postdata.Lastname">
+            </div>
+            <div class="form-group">
+                <label for="Username">Username:</label>
+                <input class="form-control" type="text" name="Username" ng-model="postdata.Username">
+              </div>
+              <div class="form-group">
+                  <label for="Age">Age:</label>
+                  <input class="form-control" type="text" name="Age" ng-model="postdata.Age">
+            </div>
+            <div class="form-group">
+                <label for="PhoneNumber">PhoneNumber:</label>
+                <input class="form-control" type="text" name="phoneNumber" ng-model="postdata.phoneNumber">
+          </div>
+          <div class="form-group">
+              <label for="Description">Description:</label>
+              <textarea class="form-control" name="Department" style="height: 160px;" ng-model="postdata.Department"></textarea>
+        </div>
+            <!-- <div class="checkbox">
+              <label><input type="checkbox" name="remember"> Remember me</label>
+            </div> -->
+            <button type="submit" class="btn btn-default" ng-click="savedata(postdata)">Submit</button>
+          </form>
+<br>
+          <div class="col-xl-12">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Username</th>
+                    <th>Age</th>
+                    <th>PhoneNumber</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="disp in display">
+                    <td>
+                      <span ng-show="!editshow"> {{disp.Firstname}}</span>
+                      <input ng-show="editshow" class="form-control"  type="text" name="Firstname" ng-model="disp.Firstname">
+                    </td>
+                    <td>
+                      <span ng-show="!editshow"> {{disp.Lastname}}</span>
+                      <input ng-show="editshow" class="form-control" type="text" name="Lastname" ng-model="disp.Lastname">
+                    </td>
+                    <td>
+                      <span ng-show="!editshow"> {{disp.Username}}</span>
+                      <input ng-show="editshow" class="form-control" type="text" name="Username" ng-model="disp.Username">
+                    </td>
+                    <td>
+                      <span ng-show="!editshow"> {{disp.Age}}</span>
+                      <input ng-show="editshow" class="form-control" type="text" name="Age" ng-model="disp.Age">
+                    </td>
+                    <td>
+                      <span ng-show="!editshow"> {{disp.phoneNumber}}</span>
+                      <input ng-show="editshow" class="form-control" type="text" name="phoneNumber" ng-model="disp.phoneNumber">
+                    </td>
+                    <td>
+                      <span ng-show="!editshow">{{disp.Department}}</span>
+                      <textarea ng-show="editshow" class="form-control" name="Department"  ng-model="disp.Department"></textarea>
+                    </td>
+                    <td>
+                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="removeitems(disp._id)"></span> 
+                       <span class="glyphicon glyphicon-pencil" aria-hidden="true" ng-click="editshow=true"></span>
+                    </td>
+                  </tr>
+                  <tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+               
+           
+<script src="js/app.js"></script>
+<script src="js/controller.js"></script>
+<!-- <script src="js/service.js"></script> -->
+  </body>
+  </html>
